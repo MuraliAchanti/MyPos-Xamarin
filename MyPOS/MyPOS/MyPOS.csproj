@@ -1,0 +1,53 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Models\Sale.cs" />
+    <Compile Remove="Services\CustomerRepository.cs" />
+    <Compile Remove="Services\ICustomerRepository.cs" />
+    <Compile Remove="Services\IItemRepository.cs" />
+    <Compile Remove="Services\IReceiptRepository.cs" />
+    <Compile Remove="Services\ItemRepository.cs" />
+    <Compile Remove="Services\MockDataStore.cs" />
+    <Compile Remove="Services\ReceiptRepository.cs" />
+    <Compile Remove="ViewModels\BiiledItemViewModel.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microcharts" Version="0.7.1" />
+    <PackageReference Include="Microcharts.Forms" Version="0.7.1" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.5.231" />
+    <PackageReference Include="Xam.Plugins.Settings" Version="3.1.1" />
+    <PackageReference Include="Xamarin.Forms" Version="4.0.0.425677" />  
+    <PackageReference Include="Xamarin.Essentials" Version="1.1.0" />  
+    <PackageReference Include="ZXing.Net.Mobile" Version="2.4.1" />  
+    <PackageReference Include="ZXing.Net.Mobile.Forms" Version="2.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\CustomersPage.xaml.cs">
+      <DependentUpon>CustomersPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\CustomerDetailPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\NewCategoryPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

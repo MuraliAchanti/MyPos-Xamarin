@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyPOS.Views.LoginPage"
+             BackgroundImageSource="loginBackground.png"
+             Title="{Binding Title}">
+    <ContentPage.Content>
+        <StackLayout Spacing="20" Padding="15">
+            <Entry x:Name="Username" Placeholder="Username" TextColor="#32CD32" FontSize="Medium"/>
+            <Entry x:Name="Password"  Placeholder="Password" IsPassword="True" TextColor="#32CD32" FontSize="Medium" />
+            <Button Text="SIGN IN" Clicked="Login_Clicked" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

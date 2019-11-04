@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MyPOS.Views.SettingsPage"
+             xmlns:vm="clr-namespace:MyPOS.ViewModels"
+             Title="{Binding Title}">
+    
+    <StackLayout Spacing="20" Padding="15">
+        <Label Text="{Binding Role}" 
+               HorizontalTextAlignment="Center"
+               FontSize="Medium" />
+        <Label Text="{Binding Email}" x:Name="UserEmail" 
+               VerticalOptions="EndAndExpand" 
+               HorizontalTextAlignment="Center"
+               FontSize="Medium"/>
+        <Button Text="Log Out" Clicked="Log_Out_Clicked"  />
+    </StackLayout>
+    
+</ContentPage>

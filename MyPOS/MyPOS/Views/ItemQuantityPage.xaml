@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MyPOS.Views.ItemQuantityPage">
+
+    <ContentPage.Content>
+        <StackLayout  Spacing="20" Padding="15">
+            <Label x:Name="Name" Text="{Binding Item.Name}" FontAttributes="Bold" />
+            <Label Text="{Binding Item.Category}" HorizontalOptions="StartAndExpand"/>
+            <Label x:Name="Price" Text="{Binding Item.Price, StringFormat='{0:C}'}" HorizontalOptions="StartAndExpand"/>
+            <Label x:Name="Total" Text="0" FontSize="Large"
+                   HorizontalOptions="Center"/>
+            <Entry Text="{Binding Item.Quantity}" x:Name="QtyNeeded"
+                   Keyboard="Numeric" FontSize="Small"
+                   TextChanged="QtyNeeded_TextChanged"
+                   Completed="QtyNeeded_Completed"/>
+            <Button Text="+" x:Name="add" Clicked="Add_Clicked"/>
+            <Button Text="-" x:Name="sub" Clicked="Sub_Clicked"/>
+            <Button Text="Done" WidthRequest="15" x:Name="done" Clicked="Done_Clicked"/>
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

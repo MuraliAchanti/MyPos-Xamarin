@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MyPOS.Views.NewCustomerPage"
+             Title="New Customer">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" />
+        <ToolbarItem Text="Save" Clicked="Save_Clicked" />
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        <StackLayout Spacing="20" Padding="15">
+            <Entry Text="{Binding Customer.Name}" Placeholder="Customer Name" 
+                   d:Text="Name" FontSize="Small" Margin="0"/>
+            <Entry Text="{Binding Customer.Email}"  Placeholder="Email"
+                   Keyboard="Email"
+                   d:Text="Email" FontSize="Small" Margin="0" />
+            <Entry Text="{Binding Customer.Number}" Placeholder="Phone Number" 
+                   Keyboard="Telephone" MaxLength="10" d:Text="Number" FontSize="Small" Margin="0" />
+            <Entry Text="{Binding Customer.Note}" Placeholder="Note" 
+                   d:Text="Note" FontSize="Small" Margin="0" />
+        </StackLayout>
+    </ContentPage.Content>
+    
+</ContentPage>

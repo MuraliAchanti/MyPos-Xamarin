@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MyPOS.Views.CustomersPage"
+             Title="{Binding Title}"
+             x:Name="LinkCustomerPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add Customer" Icon="addIcoin.png" Clicked="NewCustomer_Clicked" />
+    </ContentPage.ToolbarItems>
+
+    <StackLayout Spacing="20" Padding="15">
+        <SearchBar x:Name="CustomerSearchBar" 
+                   Placeholder="Search customers" 
+                   TextChanged="CustomerSearchBar_TextChanged"/>
+        <ListView x:Name="CustomersListView"
+                ItemsSource="{Binding Customers}"
+                VerticalOptions="FillAndExpand"
+                HasUnevenRows="true"
+                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                RefreshCommand="{Binding LoadCustomersCommand}"
+                IsPullToRefreshEnabled="true"
+                CachingStrategy="RecycleElement"
+                ItemSelected="OnCustomerSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.ContextActions>
+                            <MenuItem Clicked="OnEdit" CommandParameter="{Binding .}" Text="Edit" />
+                            <MenuItem Clicked="OnDelete" CommandParameter="{Binding .}" Text="Delete" IsDestructive="True" />
+                        </ViewCell.ContextActions>
+                        <StackLayout Padding="10">
+                            <Label Text="{Binding Name}" 
+                                d:Text="{Binding .}"
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="16" />
+                            <Label Text="{Binding Email}" 
+                                d:Text="Price"
+                                LineBreakMode="NoWrap"
+                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                FontSize="13" />                            
+                        </StackLayout>
+                        
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </StackLayout>
+    
+</ContentPage>
